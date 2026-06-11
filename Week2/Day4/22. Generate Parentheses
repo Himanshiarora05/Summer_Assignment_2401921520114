@@ -1,0 +1,17 @@
+class Solution {
+public:
+void generate(vector<string>&ans,string v,int op,int cl,int n){
+    if(cl==n) {
+        ans.push_back(v);
+        return;
+    }
+    if(op<n)
+    generate(ans,v+'(',op+1,cl,n);
+    if(cl<op) generate(ans,v+')',op,cl+1,n);
+}
+    vector<string> generateParenthesis(int n) {
+        vector<string> ans;
+        generate(ans,"",0,0,n);
+        return ans;
+    }
+};
